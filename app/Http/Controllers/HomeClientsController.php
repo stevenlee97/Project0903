@@ -28,8 +28,8 @@ class HomeClientsController extends Controller
     }
 
     function getProduct(){
-        $product = Products::get();
-        return view('clients.pages.product',compact('product'));
+        $product = Products::paginate(15);
+        return view('clients.pages.product',["product" => $product]);
     }
 
     function getCart(){
