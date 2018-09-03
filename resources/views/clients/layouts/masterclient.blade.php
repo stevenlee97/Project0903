@@ -146,7 +146,7 @@
 								<ul class="cat_menu">
 									 @foreach($menu as $m)
                                             @if(count($m->levelTwo)==0)
-                                                <li><a href="{{route('getproduct',$m->id)}}">{{$m->name}}</a></li>
+                                                <li><a href="{{route('getproductbyid',$m->id)}}">{{$m->name}}</a></li>
                                             @else
                                                 <li><a  class="has-arrow" aria-expanded="false" href="{{route('getproductbyid',$m->id)}}"><span class="hide-menu">{{$m->name}}<i class="fas fa-chevron-right" style="display:block;"></i></span></a>
                                                     <ul aria-expanded="false" class="collapse">
