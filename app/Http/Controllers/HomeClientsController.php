@@ -36,7 +36,7 @@ class HomeClientsController extends Controller
     function getProductById($id){
         $subcate = Categories::where('id_parent',$id)->get()->count();
         dd($subcate);
-        // $product = Products::where('id_type',$id)->get();
+        // $product = Products::where('id_type',$id_type)->get();
         // return view('clients.pages.list-product',compact('product'));
     }
 
