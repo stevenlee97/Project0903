@@ -8,32 +8,33 @@
 	<div class="single_product">
 		<div class="container">
 			<div class="row">
-
+					@foreach($detail as $d)
 				<!-- Images -->
 				<div class="col-lg-2 order-lg-1 order-2">
 					<ul class="image_list">
-						<li data-image="assets/client/images/single_4.jpg"><img src="assets/client/images/single_4.jpg" alt=""></li>
-						<li data-image="assets/client/images/single_2.jpg"><img src="assets/client/images/single_2.jpg" alt=""></li>
-						<li data-image="assets/client/images/single_3.jpg"><img src="assets/client/images/single_3.jpg" alt=""></li>
+						<li data-image="assets/admin/images/img/images/products/{{$d->image}}"><img src="assets/admin/images/img/images/products/{{$d->image}}" alt=""></li>
+						<li data-image="assets/admin/images/img/images/products/{{$d->image}}"><img src="assets/admin/images/img/images/products/{{$d->image}}" alt=""></li>
+						<li data-image="assets/admin/images/img/images/products/{{$d->image}}"><img src="assets/admin/images/img/images/products/{{$d->image}}" alt=""></li>
 					</ul>
 				</div>
 
 				<!-- Selected Image -->
 				<div class="col-lg-5 order-lg-2 order-1">
-					<div class="image_selected"><img src="assets/client/images/single_4.jpg" alt=""></div>
+					<div class="image_selected"><img src="assets/admin/images/img/images/products/{{$d->image}}" alt=""></div>
 				</div>
 
 				<!-- Description -->
+				
 				<div class="col-lg-5 order-3">
 					<div class="product_description">
 						<div class="product_category">Laptops</div>
-					<div class="product_name">{{$detail->name}}</div>
+					<div class="product_name">{{$d->name}}</div>
 						
-					<div class="product_text"><p>{{$detail->detail}}</p></div>
+					<div class="product_text"><p>{!! $d->detail !!}</p></div>
 						<div class="order_info d-flex flex-row">
 							<form action="#">
 								<div class="clearfix" style="z-index: 1000;">
-
+									
 									<!-- Product Quantity -->
 									<div class="product_quantity clearfix">
 										<span>Quantity: </span>
@@ -61,12 +62,16 @@
 
 								</div>
 
-								<div class="product_price">$2000</div>
+								@if($d->promotion_price == 0)
+								<div class="product_price">{{number_format($d->price)}} VND</div>
+								@else
+							<div class="product_price discount">{{number_format($d->promotion_price)}} VND<p><strike>{{number_format($d->price)}}</strike></p></div>
+								@endif
 								<div class="button_container">
 									<button type="button" class="button cart_button">Add to Cart</button>
 									<div class="product_fav"><i class="fas fa-heart"></i></div>
 								</div>
-								
+								@endforeach
 							</form>
 						</div>
 					</div>
