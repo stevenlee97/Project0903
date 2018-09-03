@@ -1,6 +1,8 @@
 @extends('clients.layouts.masterclient')
 @section('title','Giỏ hàng')
 @section('content')
+<link rel="stylesheet" type="text/css" href="assets/client/styles/cart_styles.css">
+<link rel="stylesheet" type="text/css" href="assets/client/styles/cart_responsive.css">
 	<!-- Cart -->
 
 	<div class="cart_section">

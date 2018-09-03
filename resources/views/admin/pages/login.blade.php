@@ -1,4 +1,5 @@
 @extends('admin.layouts.loginlayout')
+@section('title','Admin Login')
 @section('content')
     <!-- Main wrapper  -->
     <div id="main-wrapper">

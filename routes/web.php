@@ -22,10 +22,19 @@ Route::get('login','HomeAdminController@getLogin')->name('getlogin');
 Route::post('login','HomeAdminController@postLogin')->name('postlogin');
 
 Route::get('admin','HomeAdminController@getIndex')->name('admindashboard');
+
+//CLIENT
 Route::get('productdetail','HomeClientsController@getDetailProduct')->name('getdetail');
 Route::get('home','HomeClientsController@getHome')->name('gethome');
 Route::get('product','HomeClientsController@getProduct')->name('getproduct');
 Route::get('cart','HomeClientsController@getCart')->name('getcart');
+Route::get('contact','HomeClientsController@getContact')->name('getcontact');
+Route::get('clientlogin','HomeClientsController@getLogin')->name('getclientlogin');
+Route::post('clientlogin','HomeClientsController@postLogin')->name('postclientlogin');
+Route::get('clientregister','HomeClientsController@getRegister')->name('getclientregister');
+Route::post('clientregister','HomeClientsController@postRegister')->name('postclientregister');
+
+//ADMIN
 Route::group(['prefix'=>'admin'],function(){
     Route::get('dashboard','HomeAdminController@getIndex')->name('dashboard');
     Route::get('listuser','HomeAdminController@getUserList')->name('getuserlist');

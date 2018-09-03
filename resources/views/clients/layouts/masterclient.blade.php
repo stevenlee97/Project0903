@@ -11,16 +11,17 @@
 <link rel="stylesheet" type="text/css" href="assets/client/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
 <link rel="stylesheet" type="text/css" href="assets/client/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
 <link rel="stylesheet" type="text/css" href="assets/client/plugins/OwlCarousel2-2.2.1/animate.css">
-<link rel="stylesheet" type="text/css" href="assets/client/styles/product_styles.css">
-<link rel="stylesheet" type="text/css" href="assets/client/styles/product_responsive.css">
 <link rel="stylesheet" type="text/css" href="assets/client/plugins/slick-1.8.0/slick.css">
 <link rel="stylesheet" type="text/css" href="assets/client/styles/main_styles.css">
 <link rel="stylesheet" type="text/css" href="assets/client/styles/responsive.css">
-<link rel="stylesheet" type="text/css" href="asset/client/plugins/jquery-ui-1.12.1.custom/jquery-ui.css">
-<link rel="stylesheet" type="text/css" href="assets/client/styles/shop_styles.css">
-<link rel="stylesheet" type="text/css" href="assets/client/styles/shop_responsive.css">
-<link rel="stylesheet" type="text/css" href="assets/client/styles/cart_styles.css">
-<link rel="stylesheet" type="text/css" href="assets/client/styles/cart_responsive.css">
+
+<link rel="stylesheet" href="assets/client/plugins/cPager/css/cPager.css">
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" 
+        integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" 
+        crossorigin="anonymous">
+</script>
+<script src="assets/client/plugins/cPager/js/cPager.js"></script>
+
 
 
 </head>
@@ -42,30 +43,11 @@
 						<div class="top_bar_contact_item"><div class="top_bar_icon"><img src="assets/client/images/phone.png" alt=""></div>+38 068 005 3570</div>
 						<div class="top_bar_contact_item"><div class="top_bar_icon"><img src="assets/client/images/mail.png" alt=""></div><a href="mailto:fastsales@gmail.com">fastsales@gmail.com</a></div>
 						<div class="top_bar_content ml-auto">
-							<div class="top_bar_menu">
-								<ul class="standard_dropdown top_bar_dropdown">
-									<li>
-										<a href="#">English<i class="fas fa-chevron-down"></i></a>
-										<ul>
-											<li><a href="#">Italian</a></li>
-											<li><a href="#">Spanish</a></li>
-											<li><a href="#">Japanese</a></li>
-										</ul>
-									</li>
-									<li>
-										<a href="#">$ US dollar<i class="fas fa-chevron-down"></i></a>
-										<ul>
-											<li><a href="#">EUR Euro</a></li>
-											<li><a href="#">GBP British Pound</a></li>
-											<li><a href="#">JPY Japanese Yen</a></li>
-										</ul>
-									</li>
-								</ul>
-							</div>
+
 							<div class="top_bar_user">
 								<div class="user_icon"><img src="assets/client/images/user.svg" alt=""></div>
-								<div><a href="#">Register</a></div>
-								<div><a href="#">Sign in</a></div>
+								<div><a href="{{route('getclientregister')}}">Register</a></div>
+								<div><a href="{{route('getclientlogin')}}">Sign in</a></div>
 							</div>
 						</div>
 					</div>
@@ -194,39 +176,9 @@
 
 							<div class="main_nav_menu ml-auto">
 								<ul class="standard_dropdown main_nav_dropdown">
-									<li><a href="index.html">Home<i class="fas fa-chevron-down"></i></a></li>
-									<li class="hassubs">
-										<a href="#">Super Deals<i class="fas fa-chevron-down"></i></a>
-										<ul>
-											<li>
-												<a href="#">Menu Item<i class="fas fa-chevron-down"></i></a>
-												<ul>
-													<li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-													<li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-													<li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-												</ul>
-											</li>
-											<li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-											<li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-											<li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-										</ul>
-									</li>
-									<li class="hassubs">
-										<a href="#">Featured Brands<i class="fas fa-chevron-down"></i></a>
-										<ul>
-											<li>
-												<a href="#">Menu Item<i class="fas fa-chevron-down"></i></a>
-												<ul>
-													<li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-													<li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-													<li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-												</ul>
-											</li>
-											<li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-											<li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-											<li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-										</ul>
-									</li>
+									<li><a href="#">Home<i class="fas fa-chevron-down"></i></a></li>
+									
+									
 									<li class="hassubs">
 										<a href="#">Pages<i class="fas fa-chevron-down"></i></a>
 										<ul>
@@ -239,7 +191,7 @@
 											<li><a href="contact.html">Contact<i class="fas fa-chevron-down"></i></a></li>
 										</ul>
 									</li>
-									<li><a href="blog.html">Blog<i class="fas fa-chevron-down"></i></a></li>
+								
 									<li><a href="contact.html">Contact<i class="fas fa-chevron-down"></i></a></li>
 								</ul>
 							</div>
@@ -348,8 +300,8 @@
 		</div>
 
 	</header>
-
- @yield('content')
+	
+@yield('content')
 
 	<!-- Recently Viewed -->
 
@@ -461,7 +413,6 @@
 								</div>
 							</div>
 						</div>
-
 					</div>
 				</div>
 			</div>
@@ -641,13 +592,15 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <script src="assets/client/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
 <script src="assets/client/plugins/slick-1.8.0/slick.js"></script>
 <script src="assets/client/plugins/easing/easing.js"></script>
-<script src="assets/client/js/product_custom.js"></script>
 <script src="assets/client/js/custom.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCIwF204lFZg1y4kPSIhKaHEXMLYxxuMhA"></script>
+<script src="assets/client/js/contact_custom.js"></script>
+<script src="assets/client/js/product_custom.js"></script>
+<script src="assets/client/js/cart_custom.js"></script>
 <script src="assets/client/plugins/Isotope/isotope.pkgd.min.js"></script>
 <script src="assets/client/plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
 <script src="assets/client/plugins/parallax-js-master/parallax.min.js"></script>
 <script src="assets/client/js/shop_custom.js"></script>
-<script src="assets/client/js/cart_custom.js"></script>
 </body>
 
 </html>

@@ -1,6 +1,8 @@
 @extends('clients.layouts.masterclient')
 @section('title','Chi tiết sản phẩm')
 @section('content')
+<link rel="stylesheet" type="text/css" href="assets/client/styles/product_styles.css">
+<link rel="stylesheet" type="text/css" href="assets/client/styles/product_responsive.css">
 	<!-- Single Product -->
 
 	<div class="single_product">

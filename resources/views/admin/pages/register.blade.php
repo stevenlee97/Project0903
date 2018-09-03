@@ -1,4 +1,5 @@
 @extends('admin.layouts.registerlayout')
+@section('title','Admin Register')
 @section('content')
     <!-- Main wrapper  -->
     <div id="main-wrapper">
@@ -21,7 +22,7 @@
                                     @csrf
                                     <div class="form-group">
                                         
-                                        <input type="text"name="username" class="form-control" placeholder="User Name" required autofocus>
+                                        <input type="text" name="username" class="form-control" placeholder="User Name" required autofocus>
                                         <ul><li style="color:red" > {{ $errors->first('username') }}</li></ul>
                                     </div>
             
