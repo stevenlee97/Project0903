@@ -24,7 +24,7 @@ Route::post('login','HomeAdminController@postLogin')->name('postlogin');
 Route::get('admin','HomeAdminController@getIndex')->name('admindashboard');
 
 //CLIENT
-Route::get('productdetail','HomeClientsController@getDetailProduct')->name('getdetail');
+Route::get('product-detail-{id}','HomeClientsController@getDetailProduct')->name('getdetail');
 Route::get('home','HomeClientsController@getHome')->name('gethome');
 Route::get('product','HomeClientsController@getProduct')->name('getproduct');
 Route::get('cart','HomeClientsController@getCart')->name('getcart');

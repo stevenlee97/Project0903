@@ -15,8 +15,9 @@ use App\Helpers\helpers;
 
 class HomeClientsController extends Controller
 {
-    public function getDetailProduct(){
-        return view('clients.pages.productdetail');
+    public function getDetailProduct($id){
+        $detail = Products::where('id',$id)->get();
+        return view('clients.pages.product-detail',compact('detail'));
     }
 
     function getHome(){
