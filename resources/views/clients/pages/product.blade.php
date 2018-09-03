@@ -128,22 +128,14 @@
 
 						</div>
 
-						{{-- <div class="turn-page" id="pager"></div> --}}
+						
 
 
 						<!-- Shop Page Navigation -->
 
-						{{-- <div class="shop_page_nav d-flex flex-row">
-							<div class="page_prev d-flex flex-column align-items-center justify-content-center"><i class="fas fa-chevron-left"></i></div>
-							<ul class="page_nav d-flex flex-row">
-								<li><a href="#">1</a></li>
-								<li><a href="#">2</a></li>
-								<li><a href="#">3</a></li>
-								<li><a href="#">...</a></li>
-								<li><a href="#">21</a></li>
-							</ul>
-							<div class="page_next d-flex flex-column align-items-center justify-content-center"><i class="fas fa-chevron-right"></i></div>
-						</div> --}}
+						<div class="shop_page_nav d-flex flex-row">
+							{{ $product->links() }}
+						</div>
 
 					</div>
 
@@ -151,16 +143,4 @@
 			</div>
 		</div>
 	</div>
-	{{-- <script>
-		$("#product_grid").cPager({
-			// how many items per page
-			pageSize: 8,
-			// container ID
-			pageid: "pager", 
-			// item class
-			itemClass: "product-item",
-			// current page index
-  			pageIndex: 1
-		});
-	</script> --}}
 @endsection
