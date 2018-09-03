@@ -180,7 +180,7 @@
 												@else
 											<div class="product_price discount">{{number_format($p->promotion_price)}} VND<p><strike>{{number_format($p->price)}}</strike></p></div>
 												@endif
-											<div class="product_name"><div><a href="product.html">{{$p->name}}</a></div></div>
+											<div class="product_name"><div><a href="{{route('getdetail',$p->id)}}">{{$p->name}}</a></div></div>
 												<div class="product_extras">
 													<div class="product_color">
 														<input type="radio" checked name="product_color" style="background:#b19c83">

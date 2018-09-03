@@ -17,6 +17,7 @@ class HomeClientsController extends Controller
 {
     public function getDetailProduct($id){
         $detail = Products::where('id',$id)->get();
+        // dd($detail);
         return view('clients.pages.product-detail',compact('detail'));
     }
 
@@ -30,6 +31,13 @@ class HomeClientsController extends Controller
     function getProduct(){
         $product = Products::get();
         return view('clients.pages.product',compact('product'));
+    }
+
+    function getProductById($id){
+        $subcate = Categories::where('id_parent',$id)->get()->count();
+        dd($subcate);
+        // $product = Products::where('id_type',$id)->get();
+        // return view('clients.pages.list-product',compact('product'));
     }
 
     function getCart(){
@@ -94,6 +102,7 @@ class HomeClientsController extends Controller
         return redirect()->route('getclientlogin')->with('success','Register Successfully! Please login.');
         //dd($req->all);
     }
+
 
     function getLevelTwo(Request $req){
         $levelTwo = Categories::where('id_parent',$req->id)->get();
