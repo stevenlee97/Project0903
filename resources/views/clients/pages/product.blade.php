@@ -114,7 +114,6 @@
 										
 									<div class="product_name"><div><a href="{{route('getdetail',$p->id)}}" tabindex="0">{{$p->name}}</a></div></div>
 									</div>
-									<div class="product_fav"><i class="fas fa-heart"></i></div>
 									<ul class="product_marks">
 										@if($p->promotion_price != 0)
 										<li class="product_mark product_new" style="background:#df3b3b;">Sale</li>

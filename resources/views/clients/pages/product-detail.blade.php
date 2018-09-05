@@ -68,7 +68,7 @@
 							<div class="product_price discount">{{number_format($d->promotion_price)}} VND<p><strike>{{number_format($d->price)}}</strike></p></div>
 								@endif
 								<div class="button_container">
-									<button type="button" class="button cart_button">Add to Cart</button>
+									<a href="{{route('buyproduct',$d->id)}}" class="button cart_button">Thêm vào giỏ hàng</a>
 									<div class="product_fav"><i class="fas fa-heart"></i></div>
 								</div>
 								@endforeach

@@ -11,9 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+//Start Page
+Route::get('/', 'HomeClientsController@getHome')->name('/');
 
 Route::get('register','HomeAdminController@getRegister')->name('getregister');
 Route::post('register','HomeAdminController@postRegister')->name('postregister');
@@ -34,6 +36,8 @@ Route::get('clientlogin','HomeClientsController@getLogin')->name('getclientlogin
 Route::post('clientlogin','HomeClientsController@postLogin')->name('postclientlogin');
 Route::get('clientregister','HomeClientsController@getRegister')->name('getclientregister');
 Route::post('clientregister','HomeClientsController@postRegister')->name('postclientregister');
+Route::get('buy-product-{id}','HomeClientsController@getBuyProduct')->name('buyproduct');
+Route::get('clearcart', 'HomeClientsController@clearCart')->name('clearcart');
 
 //ADMIN
 Route::group(['prefix'=>'admin'],function(){

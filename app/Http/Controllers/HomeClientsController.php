@@ -13,6 +13,8 @@ use App\Categories;
 use App\PageUrl;
 use App\Helpers\helpers;
 
+use Cart;
+
 class HomeClientsController extends Controller
 {
     public function getDetailProduct($id){
@@ -41,7 +43,21 @@ class HomeClientsController extends Controller
     }
 
     function getCart(){
-        return view('clients.pages.cart');
+        $cart_content = Cart::content();
+        $cart_total = Cart::total();
+        return view('clients.pages.cart',compact('cart_content','cart_total'));
+    }
+
+    function clearCart() {
+        Cart::destroy();
+        return redirect()->route('getcart');
+    }
+
+    function getBuyProduct($id) {
+        $product = Products::where('id',$id)->first();
+        Cart::add(['id' => $id, 'name' => $product->name, 'qty' => 1, 'price' => $product->price, 'options' => ['image' => $product->image]]);
+        
+        return redirect()->route('getcart');
     }
 
     function getContact(){
