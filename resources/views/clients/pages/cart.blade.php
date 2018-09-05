@@ -42,7 +42,7 @@
 						<!-- Order Total -->
 						<div class="order_total">
 							<div class="order_total_content text-md-right">
-								<div class="order_total_title">Tổng giá trị đơn hàng:</div>
+								<div class="order_total_title">Tổng giá trị đơn hàng (Đã kèm thuế VAT 10%):</div>
 								<div class="order_total_amount">{{$cart_total}}</div>
 							</div>
 						</div>

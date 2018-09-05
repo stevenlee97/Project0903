@@ -187,7 +187,7 @@
 														<input type="radio" name="product_color" style="background:#000000">
 														<input type="radio" name="product_color" style="background:#999999">
 													</div>
-													<button class="product_cart_button">Add to Cart</button>
+													<a href="{{route('buyproduct',$p->id)}}" class="btn btn-primary">Thêm vào giỏ hàng</a>
 												</div>
 											</div>
 											<div class="product_fav"><i class="fas fa-heart"></i></div>
