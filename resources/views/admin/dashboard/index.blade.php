@@ -13,8 +13,8 @@
                                     <span><i class="fa fa-usd f-s-40 color-primary"></i></span>
                                 </div>
                                 <div class="media-body media-text-right">
-                                    <h2>568120</h2>
-                                    <p class="m-b-0">Total Revenue</p>
+                                <h2>{{count($bill)}}</h2>
+                                    <p class="m-b-0">Tổng đơn hàng</p>
                                 </div>
                             </div>
                         </div>
@@ -26,8 +26,8 @@
                                     <span><i class="fa fa-shopping-cart f-s-40 color-success"></i></span>
                                 </div>
                                 <div class="media-body media-text-right">
-                                    <h2>1178</h2>
-                                    <p class="m-b-0">Sales</p>
+                                <h2>{{count($product)}}</h2>
+                                    <p class="m-b-0">Tổng sản phẩm</p>
                                 </div>
                             </div>
                         </div>
@@ -39,8 +39,8 @@
                                     <span><i class="fa fa-archive f-s-40 color-warning"></i></span>
                                 </div>
                                 <div class="media-body media-text-right">
-                                    <h2>25</h2>
-                                    <p class="m-b-0">Stores</p>
+                                <h2>{{count($categories)}}</h2>
+                                    <p class="m-b-0">Tổng mặt hàng</p>
                                 </div>
                             </div>
                         </div>
@@ -52,8 +52,8 @@
                                     <span><i class="fa fa-user f-s-40 color-danger"></i></span>
                                 </div>
                                 <div class="media-body media-text-right">
-                                    <h2>847</h2>
-                                    <p class="m-b-0">Customer</p>
+                                <h2>{{count($guest)}}</h2>
+                                    <p class="m-b-0">Tổng khách hàng</p>
                                 </div>
                             </div>
                         </div>
@@ -104,7 +104,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- column -->
+                    {{-- <!-- column -->
                 </div>
                 <div class="row">
 					<div class="col-lg-3">
@@ -377,7 +377,7 @@
                         </div>
                     </div>
 
-                </div>
+                </div> --}}
 
 
                 <!-- End PAge Content -->
