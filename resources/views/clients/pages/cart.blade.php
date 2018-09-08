@@ -23,7 +23,7 @@
 										</div>
 										<div class="cart_item_quantity cart_info_col">
 											<div class="cart_item_title">Số lượng</div>
-											<div class="cart_item_text">1</div>
+											<div class="cart_item_text">{{$c->qty}}</div>
 										</div>
 										<div class="cart_item_price cart_info_col">
 											<div class="cart_item_title">Giá</div>
@@ -32,6 +32,10 @@
 										<div class="cart_item_total cart_info_col">
 											<div class="cart_item_title">Tổng giá</div>
 											<div class="cart_item_text">0</div>
+										</div>
+										<div class="cart_item_quantity cart_info_col">
+											<div class="cart_item_title">Hành động</div>
+											<div class="cart_item_text"><a name="delCartItem{{$c->id}}" id="delCartItem{{$c->id}}" class="btn btn-danger" href="{{route('delcartitem',$c->rowId)}}" role="button"><i class="fas fa-trash"></i></a></div>
 										</div>
 									</div>
 								</li>

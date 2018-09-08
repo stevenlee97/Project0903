@@ -54,8 +54,28 @@ class HomeClientsController extends Controller
     }
 
     function getBuyProduct($id) {
+        $rowId;
+        $quantity;
         $product = Products::where('id',$id)->first();
-        Cart::add(['id' => $id, 'name' => $product->name, 'qty' => 1, 'price' => $product->price, 'options' => ['image' => $product->image]]);
+        $rs = Cart::search(function ($cartItem, $rowId) use($id) {
+            return $cartItem->id === $id;
+        }); 
+        if (count($rs) != 0) {
+            foreach ($rs as $cartItem) {
+                $rowId = $cartItem->rowId;
+                $quantity = ($cartItem->qty);
+            }
+            $quantity = $quantity+1;
+            Cart::update($rowId, ['qty' => $quantity]);
+        } else {
+            Cart::add(['id' => $id, 'name' => $product->name, 'qty' => 1, 'price' => $product->price, 'options' => ['image' => $product->image]]);
+            
+        }
+        return redirect()->route('getcart');
+    }
+
+    function delCartItem($rowId){
+        Cart::remove($rowId);
         
         return redirect()->route('getcart');
     }

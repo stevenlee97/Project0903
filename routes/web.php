@@ -38,6 +38,7 @@ Route::get('clientregister','HomeClientsController@getRegister')->name('getclien
 Route::post('clientregister','HomeClientsController@postRegister')->name('postclientregister');
 Route::get('buy-product-{id}','HomeClientsController@getBuyProduct')->name('buyproduct');
 Route::get('clearcart', 'HomeClientsController@clearCart')->name('clearcart');
+Route::get('delete-cart-item-{id}','HomeClientsController@delCartItem')->name('delcartitem');
 
 //ADMIN
 Route::group(['prefix'=>'admin'],function(){
