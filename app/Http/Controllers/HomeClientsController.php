@@ -32,7 +32,8 @@ class HomeClientsController extends Controller
 
     function getProduct(){
         $product = Products::paginate(15);
-        return view('clients.pages.product',["product" => $product]);
+        $total = Products::get();
+        return view('clients.pages.product',compact('product','total'));
     }
 
     function getProductById($id){

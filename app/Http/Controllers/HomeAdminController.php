@@ -73,7 +73,12 @@ class HomeAdminController extends Controller
     }
 
     public function getIndex(){
-        return view('admin.dashboard.index');
+        $product = Products::get();
+        $bill = Bills::get();
+        $guest = User::where('role','guest')->get();
+        $categories = Categories::where('id_parent',NULL)->get();
+
+        return view('admin.dashboard.index',compact('product','bill','guest','categories'));
     }
 
     function getUserList(){
