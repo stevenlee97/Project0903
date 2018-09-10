@@ -39,6 +39,9 @@ Route::post('clientregister','HomeClientsController@postRegister')->name('postcl
 Route::get('buy-product-{id}','HomeClientsController@getBuyProduct')->name('buyproduct');
 Route::get('clearcart', 'HomeClientsController@clearCart')->name('clearcart');
 Route::get('delete-cart-item-{id}','HomeClientsController@delCartItem')->name('delcartitem');
+Route::post('updateQuantity','HomeClientsController@updateQuantity')->name('updateQuantity');
+Route::get('checkout','HomeClientsController@getCheckout')->name('checkout');
+Route::post('postcheckout','HomeClientsController@postCheckout')->name('postcheckout');
 
 //ADMIN
 Route::group(['prefix'=>'admin'],function(){

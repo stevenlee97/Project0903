@@ -12,7 +12,10 @@ use App\Products;
 use App\Categories;
 use App\PageUrl;
 use App\Helpers\helpers;
+use App\Customers;
+use App\BillDetail;
 
+use Carbon\Carbon;
 use Cart;
 
 class HomeClientsController extends Controller
@@ -54,6 +57,22 @@ class HomeClientsController extends Controller
         return redirect()->route('getcart');
     }
 
+    function updateQuantity(Request $req){
+        $productId = $req->productId;
+        $quantity = $req->quantity;
+        // dd($productId);
+        $rs = Cart::search(function ($cartItem, $rowId) use($productId) {
+            return $cartItem->id === $productId;
+        }); 
+        if (count($rs) != 0) {
+            foreach ($rs as $cartItem) {
+                $rowId = $cartItem->rowId;
+            }
+            Cart::update($rowId, ['qty' => $quantity]);
+        }
+        return redirect()->route('getcart');
+    }
+
     function getBuyProduct($id) {
         $rowId;
         $quantity;
@@ -70,9 +89,49 @@ class HomeClientsController extends Controller
             Cart::update($rowId, ['qty' => $quantity]);
         } else {
             Cart::add(['id' => $id, 'name' => $product->name, 'qty' => 1, 'price' => $product->price, 'options' => ['image' => $product->image]]);
-            
         }
         return redirect()->route('getcart');
+    }
+
+    function getCheckout(){
+        return view('clients.pages.checkout');
+    }
+
+    function postCheckout(Request $req){
+        if(count(Cart::content()) == 0) {
+            return redirect()->route('getcart')->with('error','Giỏ hàng trống. Vui lòng thêm sản phẩm vào giỏ hàng để thanh toán');
+        }
+        $customer = new Customers;
+        $customer->name = $req->customerName;
+        $customer->email = $req->email;
+        $customer->address = $req->address;
+        $customer->phone = $req->phone;
+        $customer->note = $req->note;
+        $customer->save();
+        $cus = Customers::orderBy('id', 'desc')->first();
+        $cusId = $cus->id;
+        $today = Carbon::now()->format('Y-m-d');
+        $totalBill = Cart::total();
+        $totalBill = str_replace(",", "",$totalBill);
+        $totalBill2 = floatval($totalBill);
+        $bill = new Bills;
+        $bill->id_customer = $cusId;
+        $bill->date_order = $today;
+        $bill->total = $totalBill2;
+        $bill->save();
+        $billItem = Bills::orderBy('id', 'desc')->first();
+        $billId = $billItem->id;
+        $product = Cart::content();
+        foreach($product as $productItem){
+            $billDetail = new BillDetail;
+            $billDetail->id_bill = $billId;
+            $billDetail->id_product = $productItem->id;
+            $billDetail->quantity = $productItem->qty;
+            $billDetail->price = $productItem->price;
+            $billDetail->save();
+        }
+        Cart::destroy();
+        return redirect()->route('getcart')->with('success','Thanh toán thanh công!');
     }
 
     function delCartItem($rowId){
