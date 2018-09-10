@@ -137,9 +137,17 @@ class HomeClientsController extends Controller
         return redirect()->route('getcart')->with('success','Thanh toán thanh công!');
     }
 
+    function searchProduct(Request $req) {
+        $searchInp = $req->searchInp;
+        // dd($searchInp);
+        $rs = Products::where('name', 'like', '%' . $searchInp . '%')->get();
+        $count = count($rs);
+        // dd($rs);
+        return view('clients.pages.search',compact('rs','count'));
+    }
+
     function delCartItem($rowId){
         Cart::remove($rowId);
-        
         return redirect()->route('getcart');
     }
 
