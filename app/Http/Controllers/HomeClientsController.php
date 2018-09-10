@@ -224,13 +224,11 @@ class HomeClientsController extends Controller
 
     function postContact(request $req){
         {
-            $input = $request->all();
-            Mail::send('email', array('name'=>$input["name"],'email'=>$input["email"], 'content'=>$input['comment']), function($message){
+            Mail::send('email', array('name'=>$req->cusName,'email'=>$req->cusMail,'phone'=>$req->cusPhone, 'content'=>$req->cusContent), function($message){
                 $message->to('lytruonguy97ic@gmail.com', 'Khách hàng')->subject('Vấn đề của khách hàng!');
             });
-            Session::flash('flash_message', 'Chúng tôi đã nhận được thông tin của bạn! ');
     
-            return view('clients.pages.contact');
+            return redirect()->route('getcontact')->with('flash','Chúng tôi đã nhận được thông tin của bạn!');;
         }
     
     }

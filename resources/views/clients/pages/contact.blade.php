@@ -7,6 +7,11 @@
 
 	<div class="contact_info">
 		<div class="container">
+			@if(Session::has('flash'))
+			<div class="alert alert-success">
+				{{Session::get('flash')}}
+			</div>
+			@endif
 			<div class="row">
 				<div class="col-lg-10 offset-lg-1">
 					<div class="contact_info_container d-flex flex-lg-row flex-column justify-content-between align-items-between">
@@ -53,18 +58,18 @@
 					<div class="contact_form_container">
 						<div class="contact_form_title">Liên lạc với chúng tôi:</div>
 
-						<form action="post" id="contact_form">
+						<form method="post" id="contact_form" action="{{route('sendmail')}}">
 							@csrf
 							<div class="contact_form_inputs d-flex flex-md-row flex-column justify-content-between align-items-between">
-								<input type="text" id="contact_form_name" class="contact_form_name input_field" placeholder="Họ và tên" required="required" data-error="Xin điền đầy đủ thông tin.">
-								<input type="text" id="contact_form_email" class="contact_form_email input_field" placeholder="Email" required="required" data-error="Xin điền đầy đủ thông tin.">
-								<input type="text" id="contact_form_phone" class="contact_form_phone input_field" placeholder="Số điện thoại">
+								<input type="text" name="cusName" id="contact_form_name" class="contact_form_name input_field" placeholder="Họ và tên" required="required" data-error="Xin điền đầy đủ thông tin.">
+								<input type="text" name="cusMail" id="contact_form_email" class="contact_form_email input_field" placeholder="Email" required="required" data-error="Xin điền đầy đủ thông tin.">
+								<input type="text" name="cusPhone" id="contact_form_phone" class="contact_form_phone input_field" placeholder="Số điện thoại">
 							</div>
 							<div class="contact_form_text">
-								<textarea id="contact_form_message" class="text_field contact_form_message" name="message" rows="4" placeholder="Bạn cần hỗ trợ..." required="required" data-error="Xin điền thông tin cần hỗ trợ."></textarea>
+								<textarea name="cusContent" id="contact_form_message" class="text_field contact_form_message" name="message" rows="4" placeholder="Bạn cần hỗ trợ..." required="required" data-error="Xin điền thông tin cần hỗ trợ."></textarea>
 							</div>
 							<div class="contact_form_button">
-							<a class="button contact_submit_button" href="{{route('sendmail')}}">Gửi</a>
+							<button class="button contact_submit_button" type="submit">Gửi</button>
 							</div>
 						</form>
 
