@@ -232,10 +232,10 @@ class HomeAdminController extends Controller
 
     function getListCate(){
         $cate = Categories::get();
-        $levelOne = Categories::where('id_parent',NULL)->get();
-        $subCate = Categories::where('id_parent','<>',NULL)->get();
+        // $levelOne = Categories::where('id_parent',NULL)->get();
+        // $subCate = Categories::where('id_parent','<>',NULL)->get();
         // $parentCate = Categories::where('id_parent','id')->value('name');
-        // return view('admin.pages.list-cate',compact('cate','parentCate','levelOne'));
-        dd($levelOne);
+        return view('admin.pages.list-cate',compact('cate'));
+        // dd($levelOne);
     }
 }
