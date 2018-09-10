@@ -135,8 +135,12 @@ class HomeClientsController extends Controller
             $billDetail->price = $productItem->price;
             $billDetail->save();
         }
+        $tmp = "Tổng giá trị đơn hàng: ";
+        Mail::send('checkoutmail', array('notice'=>'Đơn hàng được xử lý thành công', 'notice2'=>$tmp, 'total'=>$totalBill), function($message) use($req){
+            $message->to($req->email, 'Khách hàng')->subject('Đơn hàng được xử lý thành công');
+        });
         Cart::destroy();
-        return redirect()->route('getcart')->with('success','Thanh toán thanh công!');
+        return redirect()->route('getcart')->with('success','Thanh toán thành công!');
     }
 
     function searchProduct(Request $req) {
@@ -224,13 +228,11 @@ class HomeClientsController extends Controller
 
     function postContact(request $req){
         {
-            $input = $request->all();
-            Mail::send('email', array('name'=>$input["name"],'email'=>$input["email"], 'content'=>$input['comment']), function($message){
+            Mail::send('email', array('name'=>$req->cusName,'email'=>$req->cusMail,'phone'=>$req->cusPhone, 'content'=>$req->cusContent), function($message){
                 $message->to('lytruonguy97ic@gmail.com', 'Khách hàng')->subject('Vấn đề của khách hàng!');
             });
-            Session::flash('flash_message', 'Chúng tôi đã nhận được thông tin của bạn! ');
     
-            return view('clients.pages.contact');
+            return redirect()->route('getcontact')->with('flash','Chúng tôi đã nhận được thông tin của bạn!');;
         }
     
     }
