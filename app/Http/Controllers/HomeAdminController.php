@@ -73,58 +73,91 @@ class HomeAdminController extends Controller
     }
 
     public function getIndex(){
-        $product = Products::get();
-        $bill = Bills::get();
-        $guest = User::where('role','guest')->get();
-        $categories = Categories::where('id_parent',NULL)->get();
+        if (Auth::check()) {
+            $product = Products::get();
+            $bill = Bills::get();
+            $guest = User::where('role','guest')->get();
+            $categories = Categories::where('id_parent',NULL)->get();
 
-        return view('admin.dashboard.index',compact('product','bill','guest','categories'));
+            return view('admin.dashboard.index',compact('product','bill','guest','categories'));
+        } else {
+            return redirect()->route('getlogin');
+        }
+    }
+
+    function logout(){
+        Auth::logout();
+        return redirect()->route('getlogin');
     }
 
     function getUserList(){
-        $user = User::where('role','guest')->get();
-        return view('admin.pages.listuser',compact('user'));
+        if (Auth::check()) {
+            $user = User::where('role','guest')->get();
+            return view('admin.pages.listuser',compact('user'));
+        } else {
+            return redirect()->route('getlogin');
+        }
     }
 
     function getBillList(){
-        $status = 1;
-        $bills = Bills::with('customer', 'billDetail','billDetail.product')->where('status',$status)->get();
-        return view('admin.pages.listbill',compact('bills','status'));
+        if (Auth::check()) {
+            $status = 1;
+            $bills = Bills::with('customer', 'billDetail','billDetail.product')->where('status',$status)->get();
+            return view('admin.pages.listbill',compact('bills','status'));
+        } else {
+            return redirect()->route('getlogin');
+        }
     }
 
     function getBillsByStatus($status){
-        $bills = Bills::with('customer', 'billDetail', 'billDetail.product')->where('status',$status)->orderBy('id','DESC')->get();
-        return view('admin.pages.listbill', compact('bills','status'));
+        if (Auth::check()) {
+            $bills = Bills::with('customer', 'billDetail', 'billDetail.product')->where('status',$status)->orderBy('id','DESC')->get();
+            return view('admin.pages.listbill', compact('bills','status'));
+        } else {
+            return redirect()->route('getlogin');
+        }
     }
 
     function getUpdateBill($id){
-        $bill = Bills::where('id',$id)->first();
-        if($bill){
-            $bill->status = 2; //0: chua xac nhan | 1: da xac nhan | 2: admin da giao hang | 3: DH bi huy
-            $bill->save();
-            return redirect()->route('getbilllist')->with('success','Cập nhật đơn hàng thành công!!');
-        }
-        else{
-            return redirect()->route('getbilllist')->with('error',"Không tìm thấy DH000$id");
+        if (Auth::check()) {
+            $bill = Bills::where('id',$id)->first();
+            if($bill){
+                $bill->status = 2; //0: chua xac nhan | 1: da xac nhan | 2: admin da giao hang | 3: DH bi huy
+                $bill->save();
+                return redirect()->route('getbilllist')->with('success','Cập nhật đơn hàng thành công!!');
+            }
+            else{
+                return redirect()->route('getbilllist')->with('error',"Không tìm thấy DH000$id");
+            }
+        } else {
+            return redirect()->route('getlogin');
         }
     }
 
     function getCancelBill($id){
-        $bill = Bills::where('id',$id)->first();
-        if($bill){
-            $bill->status = 3;
-            $bill->save();
-            return redirect()->route('getbilllist')->with('success','Hủy đơn hàng thành công!');
-        }
-        else{
-            return redirect()->route('getbilllist')->with('error',"Không tìm thấy DH000$id");
+        if (Auth::check()) {
+            $bill = Bills::where('id',$id)->first();
+            if($bill){
+                $bill->status = 3;
+                $bill->save();
+                return redirect()->route('getbilllist')->with('success','Hủy đơn hàng thành công!');
+            }
+            else{
+                return redirect()->route('getbilllist')->with('error',"Không tìm thấy DH000$id");
+            }
+        } else {
+            return redirect()->route('getlogin');
         }
     }
 
     function getListProduct($idType){
-        $nameType = Categories::where('id',$idType)->value('name');
-        $products = Products::where('id_type',$idType)->get();
-        return view('admin.pages.list-product',compact('products','nameType'));
+        if (Auth::check()) {
+            $nameType = Categories::where('id',$idType)->value('name');
+            $products = Products::where('id_type',$idType)->get();
+            return view('admin.pages.list-product',compact('products','nameType'));
+        } else {
+            return redirect()->route('getlogin');
+        }
     }
 
     function getLevelTwo(Request $req){
@@ -231,11 +264,28 @@ class HomeAdminController extends Controller
     }
 
     function getListCate(){
-        $cate = Categories::get();
-        // $levelOne = Categories::where('id_parent',NULL)->get();
-        // $subCate = Categories::where('id_parent','<>',NULL)->get();
-        // $parentCate = Categories::where('id_parent','id')->value('name');
-        return view('admin.pages.list-cate',compact('cate'));
-        // dd($levelOne);
+        if (Auth::check()) {
+            $cate = Categories::get();
+            return view('admin.pages.list-cate',compact('cate'));
+        } else {
+            return redirect()->route('getlogin');
+        }
+    }
+
+    function getAddCate(){
+        if (Auth::check()) {
+            $levelOne = Categories::where('id_parent',NULL)->get();
+            return view('admin.pages.addcate', compact('levelOne'));
+        } else {
+            return redirect()->route('getlogin');
+        }
+    }
+
+    function postCate(Request $req) {
+        $cate = new Categories;
+        $cate->id_parent = $req->parentCate;
+        $cate->name = $req->cateName;
+        $cate->save();
+        return redirect()->route('getcatelist');
     }
 }

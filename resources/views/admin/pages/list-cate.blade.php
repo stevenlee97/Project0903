@@ -6,7 +6,9 @@
             <div class="container-fluid">
                 <!-- Start Page Content -->
                 <div class="row">
+                
                     <div class="col-12">
+                    <a id="addBtn" class="btn btn-primary" href="{{route('addcate')}}" role="button">Tạo mới</a>
                         <div class="card">
                             <div class="card-body">
                             <h4 class="card-title">Danh sách sản phẩm thuộc loại</h4>

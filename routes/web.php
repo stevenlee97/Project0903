@@ -24,6 +24,7 @@ Route::get('login','HomeAdminController@getLogin')->name('getlogin');
 Route::post('login','HomeAdminController@postLogin')->name('postlogin');
 
 Route::get('admin','HomeAdminController@getIndex')->name('admindashboard');
+Route::get('logout','HomeAdminController@logout')->name('logout');
 
 //CLIENT
 Route::get('product-detail-{id}','HomeClientsController@getDetailProduct')->name('getdetail');
@@ -65,6 +66,8 @@ Route::group(['prefix'=>'admin'],function(){
     Route::get('update-product-{id}','HomeAdminController@getUpdateProduct')->name('updateproduct');
     Route::post('update-product-{id}','HomeAdminController@postUpdateProduct')->name('updateproduct');
     Route::get('list-cate','HomeAdminController@getListCate')->name('getcatelist');
+    Route::get('add-cate','HomeAdminController@getAddCate')->name('addcate');
+    Route::post('postCate','HomeAdminController@postCate')->name('postCate');
 
     //Level Two
     Route::get('select-level-two',"HomeAdminController@getLevelTwo")->name('getl2');
