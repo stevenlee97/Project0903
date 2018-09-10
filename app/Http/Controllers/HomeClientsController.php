@@ -94,6 +94,9 @@ class HomeClientsController extends Controller
     }
 
     function getCheckout(){
+        if(count(Cart::content()) == 0) {
+            return redirect()->route('getcart')->with('error','Giỏ hàng trống. Vui lòng thêm sản phẩm vào giỏ hàng để thanh toán');
+        }
         return view('clients.pages.checkout');
     }
 
