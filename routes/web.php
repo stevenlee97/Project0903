@@ -24,6 +24,7 @@ Route::get('login','HomeAdminController@getLogin')->name('getlogin');
 Route::post('login','HomeAdminController@postLogin')->name('postlogin');
 
 Route::get('admin','HomeAdminController@getIndex')->name('admindashboard');
+Route::get('logout','HomeAdminController@logout')->name('logout');
 
 //CLIENT
 Route::get('product-detail-{id}','HomeClientsController@getDetailProduct')->name('getdetail');

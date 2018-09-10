@@ -20,30 +20,18 @@
                                 </div>
                                 @endif
                             <div class="login-form">
-                                <h4>Login</h4>
+                                <h4>Đăng Nhập</h4>
                                 <form class="form-signin" method="post" action="{{route('postlogin')}}">
                                     @csrf
                                     <div class="form-group">
-                                        <label>Email address</label>
+                                        <label>Email</label>
                                         <input type="email" class="form-control" name="email" placeholder="Email">
                                     </div>
                                     <div class="form-group">
-                                        <label>Password</label>
-                                        <input type="password" class="form-control" name="password" placeholder="Password">
+                                        <label>Mật khẩu</label>
+                                        <input type="password" class="form-control" name="password" placeholder="Mật khẩu">
                                     </div>
-                                    <div class="checkbox">
-                                        <label>
-        										<input type="checkbox"> Remember Me
-        									</label>
-                                        <label class="pull-right">
-        										<a href="#">Forgotten Password?</a>
-        									</label>
-
-                                    </div>
-                                    <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Sign in</button>
-                                    <div class="register-link m-t-15 text-center">
-                                    <p>Don't have account ? <a href="{{route('getregister')}}"> Sign Up Here</a></p>
-                                    </div>
+                                    <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Đăng Nhập</button>
                                 </form>
                             </div>
                         </div>
