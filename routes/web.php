@@ -42,6 +42,7 @@ Route::get('delete-cart-item-{id}','HomeClientsController@delCartItem')->name('d
 Route::post('updateQuantity','HomeClientsController@updateQuantity')->name('updateQuantity');
 Route::get('checkout','HomeClientsController@getCheckout')->name('checkout');
 Route::post('postcheckout','HomeClientsController@postCheckout')->name('postcheckout');
+Route::post('postsearch','HomeClientsController@searchProduct')->name('postsearch');
 
 //ADMIN
 Route::group(['prefix'=>'admin'],function(){

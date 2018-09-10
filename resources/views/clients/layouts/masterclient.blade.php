@@ -52,8 +52,9 @@
 						<div class="header_search">
 							<div class="header_search_content">
 								<div class="header_search_form_container">
-									<form action="#" class="header_search_form clearfix">
-										<input type="search" required="required" class="header_search_input" placeholder="Tìm Kiếm Sản Phẩm">
+									<form method="post"action="{{route('postsearch')}}" class="header_search_form clearfix">
+										@csrf
+										<input type="search" name="searchInp" required="required" class="header_search_input" placeholder="Tìm Kiếm Sản Phẩm">
 										<div class="custom_dropdown" style="display:none;">
 											<div class="custom_dropdown_list">
 												<span class="custom_dropdown_placeholder clc">All Categories</span>
