@@ -78,8 +78,8 @@
 
                             <div class="form-group row">
                                 <div class="col-lg-8 ml-auto">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                    <button type="button" class="btn btn-danger" id="resetBtn">Reset</button>
+                                    <button type="submit" class="btn btn-primary">Lưu</button>
+                                    <button type="button" class="btn btn-danger" id="resetBtn">Tạo lại</button>
                                 </div>
                             </div>
                         </form>

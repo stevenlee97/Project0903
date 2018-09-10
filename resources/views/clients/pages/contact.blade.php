@@ -64,7 +64,7 @@
 								<textarea id="contact_form_message" class="text_field contact_form_message" name="message" rows="4" placeholder="Bạn cần hỗ trợ..." required="required" data-error="Xin điền thông tin cần hỗ trợ."></textarea>
 							</div>
 							<div class="contact_form_button">
-							<a class="button contact_submit_button" href="{{route('sendmail')}}">Gửi</a>
+							<a class="button contact_submit_button" > Gửi</a>
 							</div>
 						</form>
 
