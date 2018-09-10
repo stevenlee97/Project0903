@@ -64,6 +64,8 @@ Route::group(['prefix'=>'admin'],function(){
     Route::get('update-product-{id}','HomeAdminController@getUpdateProduct')->name('updateproduct');
     Route::post('update-product-{id}','HomeAdminController@postUpdateProduct')->name('updateproduct');
     Route::get('list-cate','HomeAdminController@getListCate')->name('getcatelist');
+    Route::get('add-cate','HomeAdminController@getAddCate')->name('addcate');
+    Route::post('postCate','HomeAdminController@postCate')->name('postCate');
 
     //Level Two
     Route::get('select-level-two',"HomeAdminController@getLevelTwo")->name('getl2');

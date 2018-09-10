@@ -9,68 +9,28 @@
             <div class="card">
                 <div class="card-body">
                     <div class="form-validation">
-                    <form class="form-valide" action="#" method="POST" enctype="multipart/form-data">
-                        @csrf
+                    <form class="form-valide" action="{{route('postCate')}}" method="POST" enctype="multipart/form-data">
+                            @csrf
                             <div class="form-group row">
-                                <label class="col-lg-4 col-form-label" for="productName">Tên loại sản phẩm:</label>
+                                <label class="col-lg-4 col-form-label" for="cateName">Tên loại sản phẩm:</label>
                                 <div class="col-lg-8">
-                                    <input type="text" class="form-control" id="productName" name="productName">
+                                    <input type="text" class="form-control" id="cateName" name="cateName">
                                 </div>
                             </div>
                 
                             <div class="form-group row">
-                                <label class="col-lg-4 col-form-label" for="id_type">Chọn cấp cha:</label>
+                                <label class="col-lg-4 col-form-label" for="parentCate">Chọn cấp cha:</label>
                                 <div class="col-lg-8">
-                                    <select class="form-control" id="parentCate" name="id_type">
-                                        <option value="">---Chọn loại---</option>
+                                    <select class="form-control" id="parentCate" name="parentCate">
                                             @foreach($levelOne as $l1)
                                                 <option value="{{$l1->id}}">{{$l1->name}}</option>
                                             @endforeach
                                     </select>
                                 </div>
                             </div>
-
-                            <div class="form-group row">
-                                <label class="col-lg-4 col-form-label" for="detailInfo">Thông tin chi tiết:</label>
-                                <div class="col-lg-8">
-                                    <textarea rows="10" type="text" class="form-control" id="detailInfo" name="detailInfo" ></textarea>
-                                </div>
-                                    
-                            </div>
-                            
-                            <div class="form-group row">
-                                <label class="col-lg-4 col-form-label" for="unitPrice">Đơn giá:</label>
-                                <div class="col-lg-8">
-                                    <input type="text" class="form-control" id="unitPrice" name="unitPrice">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-lg-4 col-form-label" for="promoPrice">Đơn giá khuyến mãi:</label>
-                                <div class="col-lg-8">
-                                    <input type="text" class="form-control" id="promoPrice" name="promoPrice" >
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-lg-4 col-form-label" for="promoProduct">Khuyến mãi kèm theo:</label>
-                                <div class="col-lg-8">
-                                    <textarea rows="10" type="text" class="form-control" id="promoProduct" name="promoProduct"></textarea>
-                                </div>                                
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-lg-4 col-form-label" for="val-number">Hình sản phẩm:</label>
-                                <input type="file" name="images">
-                            </div>
-                            <div class="checkbox">
-                                <label><input type="checkbox" name="specialProduct" id="specialProduct"> Sản phẩm đặc biệt</label>
-                                </div>
-                                <div class="checkbox">
-                                    <label><input type="checkbox" name="newProduct" id="newProduct"> Sản phẩm mới</label>
-                                </div>
-
                             <div class="form-group row">
                                 <div class="col-lg-8 ml-auto">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                    <button type="button" class="btn btn-danger" id="resetBtn">Reset</button>
+                                    <button type="submit" class="btn btn-primary">Lưu</button>
                                 </div>
                             </div>
                         </form>

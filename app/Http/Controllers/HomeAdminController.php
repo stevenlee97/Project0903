@@ -264,11 +264,28 @@ class HomeAdminController extends Controller
     }
 
     function getListCate(){
-        $cate = Categories::get();
-        // $levelOne = Categories::where('id_parent',NULL)->get();
-        // $subCate = Categories::where('id_parent','<>',NULL)->get();
-        // $parentCate = Categories::where('id_parent','id')->value('name');
-        return view('admin.pages.list-cate',compact('cate'));
-        // dd($levelOne);
+        if (Auth::check()) {
+            $cate = Categories::get();
+            return view('admin.pages.list-cate',compact('cate'));
+        } else {
+            return redirect()->route('getlogin');
+        }
+    }
+
+    function getAddCate(){
+        if (Auth::check()) {
+            $levelOne = Categories::where('id_parent',NULL)->get();
+            return view('admin.pages.addcate', compact('levelOne'));
+        } else {
+            return redirect()->route('getlogin');
+        }
+    }
+
+    function postCate(Request $req) {
+        $cate = new Categories;
+        $cate->id_parent = $req->parentCate;
+        $cate->name = $req->cateName;
+        $cate->save();
+        return redirect()->route('getcatelist');
     }
 }
