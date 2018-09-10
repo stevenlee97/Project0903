@@ -32,6 +32,7 @@ Route::get('product','HomeClientsController@getProduct')->name('getproduct');
 Route::get('list-product-{idType}','HomeClientsController@getProductById')->name('getproductbyid');
 Route::get('cart','HomeClientsController@getCart')->name('getcart');
 Route::get('contact','HomeClientsController@getContact')->name('getcontact');
+Route::post('sendmail','HomeClientsController@postContact')->name('sendmail');
 Route::get('clientlogin','HomeClientsController@getLogin')->name('getclientlogin');
 Route::post('clientlogin','HomeClientsController@postLogin')->name('postclientlogin');
 Route::get('clientregister','HomeClientsController@getRegister')->name('getclientregister');
@@ -43,6 +44,7 @@ Route::post('updateQuantity','HomeClientsController@updateQuantity')->name('upda
 Route::get('checkout','HomeClientsController@getCheckout')->name('checkout');
 Route::post('postcheckout','HomeClientsController@postCheckout')->name('postcheckout');
 Route::post('postsearch','HomeClientsController@searchProduct')->name('postsearch');
+
 
 //ADMIN
 Route::group(['prefix'=>'admin'],function(){

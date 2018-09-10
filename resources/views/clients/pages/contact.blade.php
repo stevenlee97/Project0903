@@ -53,7 +53,8 @@
 					<div class="contact_form_container">
 						<div class="contact_form_title">Liên lạc với chúng tôi:</div>
 
-						<form action="#" id="contact_form">
+						<form action="post" id="contact_form">
+							@csrf
 							<div class="contact_form_inputs d-flex flex-md-row flex-column justify-content-between align-items-between">
 								<input type="text" id="contact_form_name" class="contact_form_name input_field" placeholder="Họ và tên" required="required" data-error="Xin điền đầy đủ thông tin.">
 								<input type="text" id="contact_form_email" class="contact_form_email input_field" placeholder="Email" required="required" data-error="Xin điền đầy đủ thông tin.">
@@ -63,7 +64,7 @@
 								<textarea id="contact_form_message" class="text_field contact_form_message" name="message" rows="4" placeholder="Bạn cần hỗ trợ..." required="required" data-error="Xin điền thông tin cần hỗ trợ."></textarea>
 							</div>
 							<div class="contact_form_button">
-								<button type="submit" class="button contact_submit_button">Gửi</button>
+							<a class="button contact_submit_button" href="{{route('sendmail')}}">Gửi</a>
 							</div>
 						</form>
 
