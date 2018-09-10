@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+use Mail;
 use Validator;
 use App\User;
 use Hash;
@@ -218,5 +220,18 @@ class HomeClientsController extends Controller
         }
         else
             return view('admin.ajax.leveltwo',compact('levelTwo'));
+    }
+
+    function postContact(request $req){
+        {
+            $input = $request->all();
+            Mail::send('email', array('name'=>$input["name"],'email'=>$input["email"], 'content'=>$input['comment']), function($message){
+                $message->to('lytruonguy97ic@gmail.com', 'Khách hàng')->subject('Vấn đề của khách hàng!');
+            });
+            Session::flash('flash_message', 'Chúng tôi đã nhận được thông tin của bạn! ');
+    
+            return view('clients.pages.contact');
+        }
+    
     }
 }
