@@ -135,8 +135,12 @@ class HomeClientsController extends Controller
             $billDetail->price = $productItem->price;
             $billDetail->save();
         }
+        $tmp = "Tổng giá trị đơn hàng: ";
+        Mail::send('checkoutmail', array('notice'=>'Đơn hàng được xử lý thành công', 'notice2'=>$tmp, 'total'=>$totalBill), function($message) use($req){
+            $message->to($req->email, 'Khách hàng')->subject('Đơn hàng được xử lý thành công');
+        });
         Cart::destroy();
-        return redirect()->route('getcart')->with('success','Thanh toán thanh công!');
+        return redirect()->route('getcart')->with('success','Thanh toán thành công!');
     }
 
     function searchProduct(Request $req) {
