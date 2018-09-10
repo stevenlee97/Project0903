@@ -1,5 +1,5 @@
 @extends('clients.layouts.masterclient')
-@section('title','Trang chủ')
+@section('title','Trang Chủ')
 @section('content')
     <!-- Banner -->
 
@@ -10,11 +10,11 @@
 				
 				<div class="col-lg-5 offset-lg-4 fill_height">
 					<div class="banner_content">
-						<h2 class="banner_text" style="color:black">New era of Macbook Air</h2><br/><br/><br/>
+						<h2 class="banner_text" style="color:black">MacBook Pro 2017</h2><br/><br/><br/>
 						
 					
-						<h3 class="banner_text"style="color:black">IS NOW AVAILABLE</h3>
-					<div class="button banner_button"><a href="{{route('getproduct')}}">Shop Now</a></div>
+						<h3 class="banner_text"style="color:black">15 inch SSD 256GB TouchBar</h3>
+					<div class="button banner_button"><a href="{{route('getproduct')}}">Khám Phá Ngay</a></div>
 					</div>
 				</div>
 			</div>
@@ -33,8 +33,8 @@
 					<div class="char_item d-flex flex-row align-items-center justify-content-start">
 						<div class="char_icon"><img src="assets/client/images/char_1.png" alt=""></div>
 						<div class="char_content">
-							<div class="char_title">Free Delivery</div>
-							<div class="char_subtitle">from $50</div>
+							<div class="char_title">Giao Hàng Tận Nhà</div>
+							<div class="char_subtitle">trong khoảng cách 5km</div>
 						</div>
 					</div>
 				</div>
@@ -45,8 +45,8 @@
 					<div class="char_item d-flex flex-row align-items-center justify-content-start">
 						<div class="char_icon"><img src="assets/client/images/char_2.png" alt=""></div>
 						<div class="char_content">
-							<div class="char_title">Free Delivery</div>
-							<div class="char_subtitle">from $50</div>
+							<div class="char_title">Đổi Trả Tiện Lợi</div>
+							<div class="char_subtitle">trong vòng 30 ngày đầu</div>
 						</div>
 					</div>
 				</div>
@@ -57,8 +57,8 @@
 					<div class="char_item d-flex flex-row align-items-center justify-content-start">
 						<div class="char_icon"><img src="assets/client/images/char_3.png" alt=""></div>
 						<div class="char_content">
-							<div class="char_title">Free Delivery</div>
-							<div class="char_subtitle">from $50</div>
+							<div class="char_title">Hỗ Trợ Trả Góp</div>
+							<div class="char_subtitle">lãi suất ưu đãi</div>
 						</div>
 					</div>
 				</div>
@@ -69,8 +69,8 @@
 					<div class="char_item d-flex flex-row align-items-center justify-content-start">
 						<div class="char_icon"><img src="assets/client/images/char_4.png" alt=""></div>
 						<div class="char_content">
-							<div class="char_title">Free Delivery</div>
-							<div class="char_subtitle">from $50</div>
+							<div class="char_title">Hậu Mãi Hấp Dẫn</div>
+							<div class="char_subtitle">lên đến 36 tháng</div>
 						</div>
 					</div>
 				</div>
@@ -88,7 +88,7 @@
 					<!-- Deals -->
 
 					<div class="deals">
-						<div class="deals_title">Hot deals</div>
+						<div class="deals_title">Khuyến Mãi</div>
 						<div class="deals_slider_container">
 							
 							<!-- Deals Slider -->
@@ -100,45 +100,12 @@
 								<div class="deals_image"><img height="300px"src="assets/client/images/products/{{$hot->image}}" alt=""></div>
 									<div class="deals_content">
 										<div class="deals_info_line d-flex flex-row justify-content-start">
-											<div class="deals_item_category"><a href="#">Phone</a></div>
-											
-										</div>
-										<div class="deals_info_line d-flex flex-row justify-content-start">
 										<div class="deals_item_name">{{$hot->name}}</div>
 											@if($hot->promotion_price == 0)
 											<div class="deals_item_price ml-auto" >{{number_format($hot->price)}} VND</div>
 											@else
 											<div class="product_price discount">{{number_format($hot->promotion_price)}} VND<p><strike>{{number_format($hot->price)}}</strike></p></div>
 												@endif
-										</div>
-										<div class="available">
-											<div class="available_line d-flex flex-row justify-content-start">
-												<div class="available_title">Available: <span>6</span></div>
-												<div class="sold_title ml-auto">Already sold: <span>28</span></div>
-											</div>
-											<div class="available_bar"><span style="width:17%"></span></div>
-										</div>
-										<div class="deals_timer d-flex flex-row align-items-center justify-content-start">
-											<div class="deals_timer_title_container">
-												<div class="deals_timer_title">Hurry Up</div>
-												<div class="deals_timer_subtitle">Offer ends in:</div>
-											</div>
-											<div class="deals_timer_content ml-auto">
-												<div class="deals_timer_box clearfix" data-target-time="">
-													<div class="deals_timer_unit">
-														<div id="deals_timer1_hr" class="deals_timer_hr"></div>
-														<span>hours</span>
-													</div>
-													<div class="deals_timer_unit">
-														<div id="deals_timer1_min" class="deals_timer_min"></div>
-														<span>mins</span>
-													</div>
-													<div class="deals_timer_unit">
-														<div id="deals_timer1_sec" class="deals_timer_sec"></div>
-														<span>secs</span>
-													</div>
-												</div>
-											</div>
 										</div>
 									</div>
 								</div>
@@ -159,8 +126,8 @@
 						<div class="tabbed_container">
 							<div class="tabs">
 								<ul class="clearfix">
-									<li class="active">Special Product</li>
-									<li>New Arrival</li>
+									<li class="active">Sản Phẩm Đặt Biệt</li>
+									<li>Sản Phẩm Mới</li>
 								</ul>
 								<div class="tabs_line"><span></span></div>
 							</div>
@@ -265,12 +232,11 @@
 			<div class="row">
 				<div class="col-lg-3">
 					<div class="popular_categories_content">
-						<div class="popular_categories_title">Popular Categories</div>
+						<div class="popular_categories_title">Các Loại Sản Phẩm Đang Kinh Doanh</div>
 						<div class="popular_categories_slider_nav">
 							<div class="popular_categories_prev popular_categories_nav"><i class="fas fa-angle-left ml-auto"></i></div>
 							<div class="popular_categories_next popular_categories_nav"><i class="fas fa-angle-right ml-auto"></i></div>
 						</div>
-						<div class="popular_categories_link"><a href="#">full catalog</a></div>
 					</div>
 				</div>
 				
@@ -284,7 +250,7 @@
 							<div class="owl-item">
 								<div class="popular_category d-flex flex-column align-items-center justify-content-center">
 									<div class="popular_category_image"><img src="assets/client/images/popular_1.png" alt=""></div>
-									<div class="popular_category_text">Smartphones & Tablets</div>
+									<div class="popular_category_text">Smartphones & Máy Tính Bảng</div>
 								</div>
 							</div>
 
@@ -292,7 +258,7 @@
 							<div class="owl-item">
 								<div class="popular_category d-flex flex-column align-items-center justify-content-center">
 									<div class="popular_category_image"><img src="assets/client/images/popular_2.png" alt=""></div>
-									<div class="popular_category_text">Computers & Laptops</div>
+									<div class="popular_category_text">Laptops</div>
 								</div>
 							</div>
 
@@ -300,15 +266,7 @@
 							<div class="owl-item">
 								<div class="popular_category d-flex flex-column align-items-center justify-content-center">
 									<div class="popular_category_image"><img src="assets/client/images/popular_3.png" alt=""></div>
-									<div class="popular_category_text">Gadgets</div>
-								</div>
-							</div>
-
-							<!-- Popular Categories Item -->
-							<div class="owl-item">
-								<div class="popular_category d-flex flex-column align-items-center justify-content-center">
-									<div class="popular_category_image"><img src="assets/client/images/popular_4.png" alt=""></div>
-									<div class="popular_category_text">Video Games & Consoles</div>
+									<div class="popular_category_text">Máy Nghe Nhạc</div>
 								</div>
 							</div>
 
@@ -316,7 +274,7 @@
 							<div class="owl-item">
 								<div class="popular_category d-flex flex-column align-items-center justify-content-center">
 									<div class="popular_category_image"><img src="assets/client/images/popular_5.png" alt=""></div>
-									<div class="popular_category_text">Accessories</div>
+									<div class="popular_category_text">Phụ Kiện</div>
 								</div>
 							</div>
 
@@ -345,8 +303,6 @@
 										<div class="banner_2_text" ><b>Siêu phẩm smartphone 2017 - iPhone 8 đã chính thức được Apple ra mắt với nhiều cải tiến giá trị so với người tiền nhiệm iPhone 7, hứa hẹn một năm bội thu cho gã khổng lồ xứ Cupertino.</p>
 												Thiết kế Apple iPhone 8 64GB đổi mới toát lên vẻ sang trọng nhờ chất liệu kính ở mặt lưng mà Apple đã thêm vào.</b>
 												</div>
-										
-										<div class="button banner_2_button"><a href="#">Explore</a></div>
 									</div>
 									
 								</div>
@@ -368,9 +324,9 @@
 				<div class="col">
 					<div class="tabbed_container">
 						<div class="tabs clearfix tabs-right">
-							<div class="new_arrivals_title">Hot New Arrivals</div>
+							<div class="new_arrivals_title">Top Xu Hướng Sản Phẩm</div>
 							<ul class="clearfix">
-								<li class="active">Featured</li>
+								<li class="active">Nổi Bật</li>
 							</ul>
 							<div class="tabs_line"><span></span></div>
 						</div>
@@ -464,8 +420,8 @@
 				<!-- Trends Content -->
 				<div class="col-lg-3">
 					<div class="trends_container">
-						<h2 class="trends_title">Trends 2018</h2>
-						<div class="trends_text"><p>Lorem ipsum dolor sit amet, consectetur adipiscing Donec et.</p></div>
+						<h2 class="trends_title">Hàng Sắp Về</h2>
+						<div class="trends_text"><p>Các sản phẩm sẽ về hàng trong thời gian tới</p></div>
 						<div class="trends_slider_nav">
 							<div class="trends_prev trends_nav"><i class="fas fa-angle-left ml-auto"></i></div>
 							<div class="trends_next trends_nav"><i class="fas fa-angle-right ml-auto"></i></div>
@@ -486,10 +442,8 @@
 								<div class="trends_item is_new">
 									<div class="trends_image d-flex flex-column align-items-center justify-content-center"><img src="assets/client/images/trends_1.jpg" alt=""></div>
 									<div class="trends_content">
-										<div class="trends_category"><a href="#">Smartphones</a></div>
 										<div class="trends_info clearfix">
-											<div class="trends_name"><a href="product.html">Jump White</a></div>
-											<div class="trends_price">$379</div>
+											<div class="trends_name">Xe Tự Hành Thông Minh</div>
 										</div>
 									</div>
 									<ul class="trends_marks">
@@ -505,10 +459,8 @@
 								<div class="trends_item">
 									<div class="trends_image d-flex flex-column align-items-center justify-content-center"><img src="assets/client/images/trends_2.jpg" alt=""></div>
 									<div class="trends_content">
-										<div class="trends_category"><a href="#">Smartphones</a></div>
 										<div class="trends_info clearfix">
-											<div class="trends_name"><a href="product.html">Samsung Charm...</a></div>
-											<div class="trends_price">$379</div>
+											<div class="trends_name">Samsung Charm</div>
 										</div>
 									</div>
 									<ul class="trends_marks">
@@ -524,67 +476,8 @@
 								<div class="trends_item is_new">
 									<div class="trends_image d-flex flex-column align-items-center justify-content-center"><img src="assets/client/images/trends_3.jpg" alt=""></div>
 									<div class="trends_content">
-										<div class="trends_category"><a href="#">Smartphones</a></div>
 										<div class="trends_info clearfix">
-											<div class="trends_name"><a href="product.html">DJI Phantom 3...</a></div>
-											<div class="trends_price">$379</div>
-										</div>
-									</div>
-									<ul class="trends_marks">
-										<li class="trends_mark trends_discount">-25%</li>
-										<li class="trends_mark trends_new">new</li>
-									</ul>
-									<div class="trends_fav"><i class="fas fa-heart"></i></div>
-								</div>
-							</div>
-
-							<!-- Trends Slider Item -->
-							<div class="owl-item">
-								<div class="trends_item is_new">
-									<div class="trends_image d-flex flex-column align-items-center justify-content-center"><img src="assets/client/images/trends_1.jpg" alt=""></div>
-									<div class="trends_content">
-										<div class="trends_category"><a href="#">Smartphones</a></div>
-										<div class="trends_info clearfix">
-											<div class="trends_name"><a href="product.html">Jump White</a></div>
-											<div class="trends_price">$379</div>
-										</div>
-									</div>
-									<ul class="trends_marks">
-										<li class="trends_mark trends_discount">-25%</li>
-										<li class="trends_mark trends_new">new</li>
-									</ul>
-									<div class="trends_fav"><i class="fas fa-heart"></i></div>
-								</div>
-							</div>
-
-							<!-- Trends Slider Item -->
-							<div class="owl-item">
-								<div class="trends_item">
-									<div class="trends_image d-flex flex-column align-items-center justify-content-center"><img src="assets/client/images/trends_2.jpg" alt=""></div>
-									<div class="trends_content">
-										<div class="trends_category"><a href="#">Smartphones</a></div>
-										<div class="trends_info clearfix">
-											<div class="trends_name"><a href="product.html">Jump White</a></div>
-											<div class="trends_price">$379</div>
-										</div>
-									</div>
-									<ul class="trends_marks">
-										<li class="trends_mark trends_discount">-25%</li>
-										<li class="trends_mark trends_new">new</li>
-									</ul>
-									<div class="trends_fav"><i class="fas fa-heart"></i></div>
-								</div>
-							</div>
-
-							<!-- Trends Slider Item -->
-							<div class="owl-item">
-								<div class="trends_item is_new">
-									<div class="trends_image d-flex flex-column align-items-center justify-content-center"><img src="assets/client/images/trends_3.jpg" alt=""></div>
-									<div class="trends_content">
-										<div class="trends_category"><a href="#">Smartphones</a></div>
-										<div class="trends_info clearfix">
-											<div class="trends_name"><a href="product.html">Jump White</a></div>
-											<div class="trends_price">$379</div>
+											<div class="trends_name">DJI Phantom 3</div>
 										</div>
 									</div>
 									<ul class="trends_marks">
@@ -602,119 +495,4 @@
 			</div>
 		</div>
 	</div>
-
-	<!-- Reviews -->
-
-	<div class="reviews">
-		<div class="container">
-			<div class="row">
-				<div class="col">
-					
-					<div class="reviews_title_container">
-						<h3 class="reviews_title">Latest Reviews</h3>
-						<div class="reviews_all ml-auto"><a href="#">view all <span>reviews</span></a></div>
-					</div>
-
-					<div class="reviews_slider_container">
-						
-						<!-- Reviews Slider -->
-						<div class="owl-carousel owl-theme reviews_slider">
-							
-							<!-- Reviews Slider Item -->
-							<div class="owl-item">
-								<div class="review d-flex flex-row align-items-start justify-content-start">
-									<div><div class="review_image"><img src="assets/client/images/review_1.jpg" alt=""></div></div>
-									<div class="review_content">
-										<div class="review_name">Roberto Sanchez</div>
-										<div class="review_rating_container">
-											<div class="rating_r rating_r_4 review_rating"><i></i><i></i><i></i><i></i><i></i></div>
-											<div class="review_time">2 day ago</div>
-										</div>
-										<div class="review_text"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fermentum laoreet.</p></div>
-									</div>
-								</div>
-							</div>
-
-							<!-- Reviews Slider Item -->
-							<div class="owl-item">
-								<div class="review d-flex flex-row align-items-start justify-content-start">
-									<div><div class="review_image"><img src="assets/client/images/review_2.jpg" alt=""></div></div>
-									<div class="review_content">
-										<div class="review_name">Brandon Flowers</div>
-										<div class="review_rating_container">
-											<div class="rating_r rating_r_4 review_rating"><i></i><i></i><i></i><i></i><i></i></div>
-											<div class="review_time">2 day ago</div>
-										</div>
-										<div class="review_text"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fermentum laoreet.</p></div>
-									</div>
-								</div>
-							</div>
-
-							<!-- Reviews Slider Item -->
-							<div class="owl-item">
-								<div class="review d-flex flex-row align-items-start justify-content-start">
-									<div><div class="review_image"><img src="assets/client/images/review_3.jpg" alt=""></div></div>
-									<div class="review_content">
-										<div class="review_name">Emilia Clarke</div>
-										<div class="review_rating_container">
-											<div class="rating_r rating_r_4 review_rating"><i></i><i></i><i></i><i></i><i></i></div>
-											<div class="review_time">2 day ago</div>
-										</div>
-										<div class="review_text"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fermentum laoreet.</p></div>
-									</div>
-								</div>
-							</div>
-
-							<!-- Reviews Slider Item -->
-							<div class="owl-item">
-								<div class="review d-flex flex-row align-items-start justify-content-start">
-									<div><div class="review_image"><img src="assets/client/images/review_1.jpg" alt=""></div></div>
-									<div class="review_content">
-										<div class="review_name">Roberto Sanchez</div>
-										<div class="review_rating_container">
-											<div class="rating_r rating_r_4 review_rating"><i></i><i></i><i></i><i></i><i></i></div>
-											<div class="review_time">2 day ago</div>
-										</div>
-										<div class="review_text"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fermentum laoreet.</p></div>
-									</div>
-								</div>
-							</div>
-
-							<!-- Reviews Slider Item -->
-							<div class="owl-item">
-								<div class="review d-flex flex-row align-items-start justify-content-start">
-									<div><div class="review_image"><img src="assets/client/images/review_2.jpg" alt=""></div></div>
-									<div class="review_content">
-										<div class="review_name">Brandon Flowers</div>
-										<div class="review_rating_container">
-											<div class="rating_r rating_r_4 review_rating"><i></i><i></i><i></i><i></i><i></i></div>
-											<div class="review_time">2 day ago</div>
-										</div>
-										<div class="review_text"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fermentum laoreet.</p></div>
-									</div>
-								</div>
-							</div>
-
-							<!-- Reviews Slider Item -->
-							<div class="owl-item">
-								<div class="review d-flex flex-row align-items-start justify-content-start">
-									<div><div class="review_image"><img src="assets/client/images/review_3.jpg" alt=""></div></div>
-									<div class="review_content">
-										<div class="review_name">Emilia Clarke</div>
-										<div class="review_rating_container">
-											<div class="rating_r rating_r_4 review_rating"><i></i><i></i><i></i><i></i><i></i></div>
-											<div class="review_time">2 day ago</div>
-										</div>
-										<div class="review_text"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fermentum laoreet.</p></div>
-									</div>
-								</div>
-							</div>
-
-						</div>
-						<div class="reviews_dots"></div>
-					</div>
-				</div>
-			</div>
-		</div>
-    </div>
 @endsection
