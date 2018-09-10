@@ -30,7 +30,6 @@
                                                 <th>Mã loại</th>
                                                 <th>Tên loại</th>
                                                 <th>Liên kết</th>
-                                                <th>Cấp cha</th>
                                                 <th>Tùy chọn</th>
                                           </tr>
                                         </thead>
@@ -47,13 +46,6 @@
                                             {{$c->id_url}}
                                     </td>
                 
-                                    <td>   
-                                        @foreach($levelOne as $l1)
-                                            @if(($c->id_parent) == ($c->id))
-                                                {{$c->name}}
-                                            @endif
-                                        @endforeach
-                                    </td>
 
                                     <td>
                                              
