@@ -16,7 +16,7 @@
 							<div class="contact_info_image"><img src="images/contact_1.png" alt=""></div>
 							<div class="contact_info_content">
 								<div class="contact_info_title">Số điện thoại</div>
-								<div class="contact_info_text">+84 932 098168</div>
+								<div class="contact_info_text">+84 932 098 168</div>
 							</div>
 						</div>
 
